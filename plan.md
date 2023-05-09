@@ -2,7 +2,7 @@ Följande är en lista i ordning gällande vilka mål som bör tacklas i vilken 
 
 Mål:
 
-* Fäta spelet på mitt loginsystem och byt ut formum delen med själva spelet
+* Spelet ska be om fetch från en API, ska skapa en API med SETSCORE och GETSCORE score som snackar med min databas
 
 * Koppla spelet till en High score databas på skolans dbserver
 

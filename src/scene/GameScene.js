@@ -2,15 +2,6 @@ import Phaser, { Cameras, } from 'phaser'
 import ScoreLabel from '../ui/ScoreLabel'
 import BombSpawner from './BombSpawner'
 
-const mysql = require('mysql2');
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-});
-const promisePool = pool.promise();
-
 const GROUND_KEY = 'ground'
 const GROUNDMAIN_KEY = 'groundMain'
 const DUDE_KEY = 'dude'
@@ -380,10 +371,6 @@ export default class GameScene extends Phaser.Scene {
 			}
 			//Förhindrar ljudet från att spela flera gånger
 			alive = 0
-
-			//Stoppar in ens score i databasen.
-			this.scoreLabel.score
-			promisePool.query('INSERT INTO jballtest ( name, score) VALUES (?, ?)', ["test", this.scoreLabel.score]);
 
 			if (this.cursors.reset.isDown) {
 				velocityX = 0
