@@ -372,6 +372,8 @@ export default class GameScene extends Phaser.Scene {
 			//Förhindrar ljudet från att spela flera gånger
 			alive = 0
 
+			fetch()
+
 			if (this.cursors.reset.isDown) {
 				velocityX = 0
 				velocityY = 0
