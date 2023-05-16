@@ -200,7 +200,7 @@ export default class GameScene extends Phaser.Scene {
 		// 	repeat: -1
 		// })
 
-		// this.anims.create({
+		// this.anims.create({ll
 		// 	key: 'platcenter',
 		// 	frames: this.anims.generateFrameNumbers(GROUNDMAIN_KEY, { start: 1, end: 1 }),
 		// 	frameRate: 20,
@@ -364,15 +364,17 @@ export default class GameScene extends Phaser.Scene {
 		if (this.gameOver) {
 			//Kollar om du int hört GameOver ljudet
 			if (alive == 1) {
-				//Spelar upp GameOver ljudet och visar GameOver meddelandet
+				//Spelar upp GameOver ljudet, visar GameOver meddelandet och begär API data 
 				this.sound.removeByKey('music');
 				this.sound.playAudioSprite('sfx', 'death')
 				textGameOver = this.add.text(this.player.x - 145, 150, 'You got the ' + this.scoreLabel.text + '\n \n \n  Press R to Reset', { fontSize: '25px' });
+				
+				fetch('https://jsonplaceholder.typicode.com/todos/1')
+      			.then(response => response.json())
+      			.then(json => console.log(json))
 			}
 			//Förhindrar ljudet från att spela flera gånger
 			alive = 0
-
-			fetch()
 
 			if (this.cursors.reset.isDown) {
 				velocityX = 0
